@@ -44,15 +44,21 @@ public class FileSystemObjectView extends JComponent
 		String name = String.format("%s (%d bytes)", object.getName(), object.getSize());
 		x += SQUARE_SIZE + SPACE;
 		g.drawString(name, x, y + SQUARE_SIZE);
-		y += SQUARE_SIZE + SPACE;
 		
 		Folder currentFolder = (Folder) object;
 		for(FileSystemObject o : currentFolder.getArray())
 		{
 			if (o == null) break;
+			y += SQUARE_SIZE + SPACE;
+			
 			if (o.getClass().equals(File.class))
 			{
 				drawFile(x, y, o, g);
+			}
+			else 
+			{
+				drawFolder(x, y, o, g);
+				x += SQUARE_SIZE + SPACE;
 			}
 		}
 	}

@@ -29,6 +29,7 @@ public class Main {
 		Folder desktop = new Folder("Desktop");
 		File sixthFile = new File("Google Chrome", 60);
 		desktop.add(sixthFile);
+		desktop.add(pictures);
 		
 		FileSystemObject[] objects = {documents, pictures, downloads, desktop};
 		FileSystemObjectView view = new FileSystemObjectView(objects);
